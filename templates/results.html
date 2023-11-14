@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Let's see how you performed!</p>
+{% if errors|length == 0 %}
+<div class="jumbotron">
+    <p>Your username has passed all the 3 requirements!</p>
+</div>
+{% else %}
+<div class="jumbotron">
+    <p>Oh, no! Looks like you had issues with your username!</p>
+    <p>Here are the requirements you failed:</p>
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endblock %}
